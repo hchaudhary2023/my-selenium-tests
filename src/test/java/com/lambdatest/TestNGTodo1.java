@@ -1,4 +1,4 @@
-package com.lambdatest;
+/*package com.lambdatest;
 
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
@@ -117,3 +117,42 @@ public class TestNGTodo1 {
     }
 
 }
+
+*/
+
+
+package com.lambdatest;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.assertTrue;
+
+public class TestNGTodo1 {
+
+    private WebDriver driver;
+
+    @Before
+    public void setUp() {
+        // Replace with actual driver path or use WebDriverManager
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+        driver = new ChromeDriver();
+    }
+
+    @Test
+    public void testTitle() {
+        driver.get("https://example.com");
+        String title = driver.getTitle();
+        assertTrue(title.contains("Example"));
+    }
+
+    @After
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+}
+
